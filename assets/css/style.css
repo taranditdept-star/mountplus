@@ -1,0 +1,788 @@
+﻿/*!
+Theme Name: Nimo
+Theme URI: https://themeforest.net/user/themexriver
+Author: ThemeXriver
+Author URI: https://#
+Description: Creative Digital Agency WordPress Theme
+Version: 1.0.3
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: nimo
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tested up to: 6.6
+Requires PHP: 7.4
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Nimo is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+
+
+
+/* Forced Overrides for Footer Sections */
+.nm-contact-1-info-single {
+    background-color: transparent !important;
+    border: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.nm-marquee-1-area {
+    background: linear-gradient(180deg, #000f05 0%, #022e15 100%) !important;
+}
+
+.nm-marquee-1-area::before,
+.nm-marquee-1-area::after {
+    background: transparent !important;
+}
+
+
+/* Forced Override for Navbar Logo */
+.tx-header .tx-logo img {
+    max-width: 180px !important;
+}
+
+
+/* Shift Logo Right */
+.tx-header .tx-logo {
+    margin-left: 30px !important;
+}
+
+/* Flaticon Fallback using FontAwesome */
+.flaticon-down:before {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    content: "\f107" !important;
+    /* angle-down */
+}
+
+/* ----------------------------------------------------------- */
+/* FIX: Trusted Partners Section Layout & Logos */
+/* ----------------------------------------------------------- */
+
+/* Reduce the excessive height of the partner strip */
+.nm-partner-1-area {
+    padding: 15px 0 !important;
+    /* Reduced from 50px */
+}
+
+/* Ensure the logo container doesn't force extra height */
+.nm-partner-1-logo {
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Force logos to be small, "thin", and WHITE */
+.nm-partner-1-logo img {
+    max-height: 50px !important;
+    /* Slightly increased to ensure visibility */
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+
+    /* CRITICAL FIX: Make logos white to contrast with dark background */
+    filter: brightness(0) invert(1) !important;
+    -webkit-filter: brightness(0) invert(1) !important;
+    opacity: 0.9 !important;
+    /* Slight transparency for elegance */
+}
+
+/* HOVER STATE: Keep them white or maybe full color if requested? */
+/* For now, keep them white/bright to ensure they don't disappear */
+.nm-partner-1-logo:hover img {
+    filter: brightness(0) invert(1) !important;
+    opacity: 1 !important;
+}
+
+
+/* Adjust title size to match the thinner strip */
+.nm-partner-1-title {
+    font-size: 14px !important;
+    max-width: 150px !important;
+    color: #ffffff !important;
+    /* Ensure title is also white */
+}
+
+/* Reduce gap between title and logos */
+.nm-partner-1-logo-wrap {
+    gap: 100px !important;
+    /* Increased to 100px */
+    margin-right: 100px !important;
+}
+
+/* OPTIONAL: If the background image is too dark/messy, clean it */
+.nm-partner-1-area {
+    /* Ensure background is dark enough for white logos */
+    background-color: #000a03 !important;
+}
+
+/* ----------------------------------------------------------- */
+/* FIX: Missing Mask Image */
+/* ----------------------------------------------------------- */
+.nm-partner-1-logo-mask {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+/* Ensure the marquee container is visible */
+.nm-partner-1-logo-marquee {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ----------------------------------------------------------- */
+/* FIX: Resize Specific Logos (Sbali & Ensign) */
+/* ----------------------------------------------------------- */
+
+.nm-partner-1-logo.logo-large img {
+    max-height: 65px !important;
+    /* Larger than default 50px */
+}
+
+.nm-partner-1-logo.logo-xl img {
+    max-height: 75px !important;
+    /* Even larger for Ensign if needed */
+}
+
+/* ----------------------------------------------------------- */
+/* FIX: About Section Author Shapes Color */
+/* ----------------------------------------------------------- */
+.nm-about-1-author-img .img-shape-1,
+.nm-about-1-author-img .img-shape-2,
+.nm-about-1-author-img .img-shape-3 {
+    background: #186802 !important;
+    background-color: #186802 !important;
+}
+
+/* ----------------------------------------------------------- */
+/* FIX: Global Section Headers Color */
+/* ----------------------------------------------------------- */
+.nm-subtitle-1 {
+    color: #1cff04 !important;
+}
+
+/* Also ensure the span inside inherits or uses this color explicitly if needed */
+.nm-subtitle-1 span {
+    color: #1cff04 !important;
+}
+
+/* Specifically for the dot if it needs to match */
+.nm-subtitle-1 .dot {
+    background-color: #1cff04 !important;
+}
+
+/* FIX: Remove Contact Info Container Background */
+.nm-contact-1-info,
+.nm-contact-1-info::before,
+.nm-contact-1-info::after {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* FIX: Remove Contact Wrapper Background (Pseudo-element) */
+.nm-contact-1-wrap::after {
+    display: none !important;
+    background: transparent !important;
+}
+
+/* FIX: Footer Social Icons Layout */
+.nm-footer-1-main {
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 40px !important;
+    /* Increase gap between columns */
+    flex-wrap: wrap !important;
+}
+
+.nm-footer-1-widget {
+    flex: 1 !important;
+    /* Allow columns to grow */
+    min-width: 200px !important;
+    /* Prevent squashing */
+}
+
+/* First widget (Company Info) needs more space */
+.nm-footer-1-widget:first-child {
+    flex: 2 !important;
+    min-width: 350px !important;
+}
+
+.nm-footer-1-hire .hire-title {
+    white-space: nowrap !important;
+    /* Force one line */
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nm-footer-1-social {
+    gap: 8px !important;
+    /* Compact gap */
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+}
+
+.nm-footer-1-social .link-elm {
+    font-size: 14px !important;
+    /* Smaller icon text */
+    width: 32px !important;
+    /* Smaller size */
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+}
+
+.nm-footer-1-social .link-elm:hover {
+    background: var(--nm-clr-pr-1) !important;
+    color: #000 !important;
+}
+
+/* FIX: Collaborative Partnership Image Animation & Text Layout */
+.nm-choose-1-handshake .bg-img img {
+    transition: all 0.5s var(--nm-cube-1) !important;
+}
+
+.nm-choose-1-handshake:hover .bg-img img {
+    transform: scale(1.03) !important;
+}
+
+.nm-choose-1-handshake .content {
+    position: absolute !important;
+    bottom: 40px !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding-top: 0 !important;
+    z-index: 2 !important;
+}
+
+/* FIX: Working Analog Clock */
+.nm-working-clock {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+    border: 8px solid var(--nm-clr-pr-1);
+    /* Use theme green */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.nm-working-clock .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.nm-working-clock .hand {
+    width: 50%;
+    height: 6px;
+    background: #333;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    border-radius: 6px;
+}
+
+.nm-working-clock .hour-hand {
+    width: 30%;
+    left: 20%;
+    height: 8px;
+    /* Thicker */
+}
+
+.nm-working-clock .min-hand {
+    width: 40%;
+    left: 10%;
+    height: 6px;
+}
+
+.nm-working-clock .second-hand {
+    background: var(--nm-clr-pr-1);
+    /* Green second hand */
+    height: 2px;
+    width: 45%;
+    left: 5%;
+}
+
+.nm-working-clock .center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.map-container {
+    width: 85%;
+    /* Reduce width */
+    max-width: 1200px;
+    /* Optional cap */
+    height: 600px;
+    /* Increase height */
+    margin: 0 auto;
+    /* Center it */
+    border-radius: 20px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* REQUIRED for iframe rounding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.nm-pagination a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #1a1a1a;
+    color: #9cff00;
+    margin: 0 5px;
+}
+
+.nm-pagination a.active {
+    background: #9cff00;
+    color: #000;
+}
+
+.nm-sidebar-card {
+    background: #111;
+    padding: 32px;
+    border-radius: 16px;
+}
+
+.nm-sidebar-wrap {
+    margin-top: 20px;
+}
+
+
+.nm-tagcloud a {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: 4px;
+}
+
+.nm-tagcloud a:hover {
+    background: #9cff00;
+    color: #000;
+}
+
+@media (min-width: 992px) {
+    .nm-sidebar-wrap {
+        position: sticky;
+        top: 120px;
+    }
+}
+
+.nm-blog-area {
+    background: #0b140f;
+    /* or #000 if you want */
+    position: relative;
+    z-index: 2;
+}
+
+
+.nm-blog-area {
+    background: linear-gradient(180deg, #050505 0%, #0b140f 100%);
+}
+
+.nm-blog-area .container {
+    max-width: 1200px;
+}
+
+/* Removed .nm-blog-1-item to prevent conflicts */
+
+/* ----------------------------------------------------------- */
+/* FIX: Blog Sidebar & Zoom Customization */
+/* ----------------------------------------------------------- */
+
+/* Sidebar Widget Box */
+.nm-sidebar-widget {
+    background: #0c0c0d;
+    /* Dark card background */
+    padding: 25px;
+    /* Reduced from 35px to widen content */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border */
+    margin-bottom: 30px;
+}
+
+.nm-sidebar-widget .widget-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.nm-sidebar-widget .widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--nm-clr-pr-1);
+    /* Theme Green Accent */
+}
+
+
+/* Search Widget */
+.nm-search-form {
+    width: 100% !important;
+    display: block !important;
+}
+
+.nm-search-form .form-group {
+    position: relative !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    /* Force no max-width */
+}
+
+
+.nm-search-form .form-group input {
+    width: auto !important;
+    /* Let flex handle width */
+    flex-grow: 1 !important;
+    /* Fill remaining space */
+    height: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 15px !important;
+    color: #000 !important;
+    font-size: 15px !important;
+}
+
+.nm-search-form .form-group button {
+    height: 50px !important;
+    width: 50px !important;
+    background: var(--nm-clr-pr-1) !important;
+    /* Lime Green */
+    border: none !important;
+    border-radius: 6px !important;
+    color: #000 !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+    transition: 0.3s !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.nm-search-form .form-group button:hover {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+/* Categories Widget */
+.sidebar-cat-list li {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-cat-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sidebar-cat-list li a {
+    display: flex;
+    justify-content: space-between;
+    color: #b0b0b0;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.sidebar-cat-list li a:hover {
+    color: var(--nm-clr-pr-1);
+    transform: translateX(5px);
+}
+
+.sidebar-cat-list li a span {
+    color: #666;
+}
+
+/* Recent Posts Widget */
+.recent-posts-widget .rp-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px !important;
+    /* Minimized spacing */
+}
+
+.recent-posts-widget .rp-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+.recent-posts-widget .rp-thumb {
+    flex: 0 0 80px;
+    margin-right: 15px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.recent-posts-widget .rp-thumb img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.recent-posts-widget .rp-item:hover .rp-thumb img {
+    transform: scale(1.1);
+}
+
+.recent-posts-widget .rp-content .date {
+    font-size: 12px;
+    color: var(--nm-clr-pr-1);
+    /* Green date */
+    display: block;
+    margin-bottom: 0 !important;
+    /* ZERO spacing */
+    line-height: 1.2 !important;
+}
+
+.recent-posts-widget .rp-content h6 {
+    margin-top: 2px !important;
+    /* Minimal spacing from date */
+    margin-bottom: 0 !important;
+}
+
+.recent-posts-widget .rp-content h6 a {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.2 !important;
+    /* Tighter line height */
+    transition: 0.3s;
+}
+
+.recent-posts-widget .rp-content h6 a:hover {
+    color: var(--nm-clr-pr-1);
+}
+
+/* Tag Cloud */
+.tagcloud a {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #1a1a1a;
+    color: #b0b0b0;
+    border-radius: 30px;
+    font-size: 14px;
+    margin: 0 5px 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.tagcloud a:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* ----------------------------------------------------------- */
+/* FIX: Nimo 1:1 Blog Clone Layout */
+/* ----------------------------------------------------------- */
+.nm-blog-card {
+
+    /* ----------------------------------------------------------- */
+    /* FIX: Nimo 1:1 Blog Clone Layout */
+    /* ----------------------------------------------------------- */
+    /* Fix Vertical Spacing */
+    .nm-blog-card {
+        display: block !important;
+        /* Force vertical stack */
+        position: relative;
+        background: transparent;
+        margin-bottom: 50px;
+        border: none;
+        transform: none !important;
+        width: 100%;
+    }
+
+    /* Remove margin from last item to align valid pagination */
+    .nm-blog-card:last-child {
+        margin-bottom: 0;
+    }
+
+    .nm-blog-card-img {
+        position: relative;
+        display: block !important;
+        border-radius: 30px;
+        overflow: hidden;
+        height: 450px;
+        width: 100% !important;
+        /* Force full width */
+        margin-bottom: 35px;
+        /* Spacing between image and text */
+        /* Fix Safari/Chrome sub-pixel rendering mask */
+        transform: translateZ(0);
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: radial-gradient(white, black);
+        z-index: 1;
+    }
+
+    .nm-blog-card-img img {
+        position: absolute;
+        /* Fix: Strict absolute positioning */
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        /* User Requested: 0.5s ease-in-out */
+        transition: transform 0.5s ease-in-out !important;
+        will-change: transform;
+        transform: scale(1.0);
+    }
+
+    /* Hover: Scale Image ONLY */
+    .nm-blog-card:hover .nm-blog-card-img img {
+        transform: scale(1.1) !important;
+        /* Zoom to 1.1 as requested */
+    }
+
+    /* Category Label */
+    .nm-blog-card-cat {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        z-index: 2;
+    }
+
+    .nm-blog-card-cat a {
+        background: #000f05;
+        color: #fff;
+        padding: 8px 24px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .nm-blog-card-cat a:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+    }
+
+    /* Content Area */
+    .nm-blog-card-content {
+        margin-top: 35px;
+    }
+
+    .nm-blog-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #b0b0b0;
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .nm-blog-card-meta i {
+        color: var(--nm-clr-pr-1);
+        /* Theme green */
+        margin-right: 8px;
+    }
+
+    .nm-blog-card-title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+
+    .nm-blog-card-title a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .nm-blog-card-title a:hover {
+        color: var(--nm-clr-pr-1);
+    }
+
+    .nm-blog-card-text {
+        color: #b0b0b0;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    /* Read More Button */
+    .nm-read-more-btn {
+        display: inline-flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nm-read-more-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .nm-read-more-btn:hover {
+        color: var(--nm-clr-pr-1);
+        /* Lime Green/Yellow Theme Color */
+    }
+
+    .nm-read-more-btn:hover i {
+        transform: translateX(5px);
+        color: var(--nm-clr-pr-1);
+    }
+
+
+    /* Read More Button Arrow Fix */
+    .nm-pr-btn-1 .icon i {
+        display: inline-block;
+    }

@@ -1,0 +1,70 @@
+/* Explicit fix for hidden arrow icons in portfolio popup/modal */
+/* Style the icon span as a circle */
+.nm-portfolio-modal .nm-pr-btn-1 .icon,
+.nm-portfolio-modal .nm-pr-btn-1 span.icon {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+    /* Removed margin in favor of gap */
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    background-color: #000000 !important;
+    /* Black circle background */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: transform 0.3s ease !important;
+    flex-shrink: 0 !important;
+    /* Prevent shrinking */
+}
+
+/* Style the arrow icon inside the circle */
+.nm-portfolio-modal .nm-pr-btn-1 .icon i,
+.nm-portfolio-modal .nm-pr-btn-1 span.icon i {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    color: #d6f345 !important;
+    /* LIME GREEN arrow color */
+    z-index: 5 !important;
+    font-size: 16px !important;
+    transform: rotate(-45deg);
+    /* Angled arrow */
+    line-height: 1 !important;
+    /* Fix vertical alignment */
+}
+
+/* Ensure container allows visibility and equal spacing */
+.nm-portfolio-modal .nm-pr-btn-1 {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    /* Equal gap between text and icon */
+    padding: 15px 35px !important;
+    /* Balanced padding */
+    border-radius: 50px !important;
+    /* Capsule shape */
+    overflow: visible !important;
+    text-decoration: none !important;
+    height: auto !important;
+    /* Allow auto height */
+    background: var(--nm-clr-pr-1) !important;
+    /* Ensure background is lime green */
+    color: #000 !important;
+    /* Ensure text is black */
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+
+/* Optional hover effect for the circle */
+.nm-portfolio-modal .nm-pr-btn-1:hover .icon {
+    transform: scale(1.1) !important;
+    background-color: #fff !important;
+}
+
+.nm-portfolio-modal .nm-pr-btn-1:hover .icon i {
+    color: #000 !important;
+}
