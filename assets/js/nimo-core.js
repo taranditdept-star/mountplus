@@ -191,7 +191,6 @@
 			if (typeof CustomEase !== "undefined") {
 				CustomEase.create("ease1", "0, 0, 0.2, 1");
 			}
-		}
 
 		function hidePreloader() {
 			if (preloader && !preloader.classList.contains("preloaded")) {
@@ -205,11 +204,8 @@
 
 		window.addEventListener("load", hidePreloader);
 
-		// Fail-safe: trigger preloader after 3 seconds even if assets are still loading
-		setTimeout(hidePreloader, 3000);
-
-		window.addEventListener("load", function () {
-			initAnimations();
+		// Fail-safe: trigger preloader after 2 seconds even if assets are still loading
+		setTimeout(hidePreloader, 2000);
 
 			/*
 			wa-split-hero
@@ -445,8 +441,7 @@
 				});
 				wow.init();
 			}
-		});
-	});
+
 
 	/*
 	subtitle-1-plus
@@ -1944,7 +1939,6 @@
 				});
 			});
 		}
-	});
 
 	/*
 	button-4-animation
@@ -2009,4 +2003,6 @@
 			y: 300,
 		});
 	}
+	}
+	});
 })(jQuery);
