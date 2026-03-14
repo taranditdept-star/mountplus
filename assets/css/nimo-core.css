@@ -4695,7 +4695,8 @@ only screen and (min-width: 768px) and (max-width: 991px),
   align-items: start;
   justify-content: end;
   height: 100%;
-  transform: translateY(100%);
+  transform: translateY(0);
+  opacity: 1;
   transition: all 0.8s var(--nm-cube-1);
 }
 
@@ -4888,7 +4889,8 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .nm-hero-1-title span {
-  transform: translateY(100%);
+  transform: translateY(0);
+  opacity: 1;
   transition: all 0.8s var(--nm-cube-1);
 }
 
@@ -4913,21 +4915,19 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .nm-hero-1-subtitle span {
-  transform: translateY(100%);
+  transform: translateY(0);
+  opacity: 1;
   transition: all 0.8s var(--nm-cube-1);
 }
 
-.nm-hero-1-disc {
-  max-width: 520px;
-  font-size: 22px;
-  color: #e3e3e3;
-  transform: translateY(100%);
+.nm-hero-1-disc {transform: translateY(0); opacity: 1;
   transition: all 0.8s var(--nm-cube-1);
 }
 
 .nm-hero-1-btn {
   margin-left: 40px;
-  transform: translateY(160%);
+  transform: translateY(0);
+  opacity: 1;
   transition: all 0.8s var(--nm-cube-1);
 }
 

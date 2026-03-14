@@ -25,21 +25,24 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 
-/* CSS for FOUC and Proactive Visibility */
-.js-loading .nm-hero-1-main-img,
-.js-loading .nm-hero-1-title span,
-.js-loading .nm-hero-1-subtitle span {
+/* Ultimate Hero Visibility Failsafe */
+.nm-hero-1-main-img, 
+.nm-hero-1-title span, 
+.nm-hero-1-subtitle span,
+.nm-hero-1-disc {
     transform: translateY(0) !important;
     opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* Ensure visibility after a reasonable timeout even if JS doesn't fire */
-@keyframes bypass-opacity {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.nm-hero-1-main-img, .nm-hero-1-title span, .nm-hero-1-subtitle span {
-    animation: bypass-opacity 0.1s forwards 3s; /* Backup visibility after 3s */
+/* Ensure these are visible even if JS fails or is late */
+body:not(.js-loading) .nm-hero-1-main-img,
+body:not(.js-loading) .nm-hero-1-title span,
+body:not(.js-loading) .nm-hero-1-subtitle span,
+body:not(.js-loading) .nm-hero-1-disc {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
 }
 
 /* Forced Overrides for Footer Sections */
@@ -644,8 +647,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* FIX: Nimo 1:1 Blog Clone Layout */
 /* ----------------------------------------------------------- */
     /* Fix Vertical Spacing */
-    .nm-blog-card {
-        display: block !important;
+.nm-blog-card {
+    display: block !important;
         /* Force vertical stack */
         position: relative;
         background: transparent;
