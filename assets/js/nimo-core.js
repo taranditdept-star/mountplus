@@ -203,6 +203,7 @@
 		}
 
 		window.addEventListener("load", hidePreloader);
+		setTimeout(hidePreloader, 800); // Fallback timeout for slow-loading resources
 
 
 		/*
