@@ -178,6 +178,7 @@
 */
 
 	document.addEventListener("DOMContentLoaded", function () {
+		document.body.classList.remove('js-loading');
 		const preloader = document.querySelector(".nm-preloader");
 		let animationsInitialized = false;
 
@@ -202,6 +203,7 @@
 
 		window.addEventListener("load", hidePreloader);
 		setTimeout(hidePreloader, 2000);
+	});
 
 /*
 			wa-split-hero
@@ -1998,6 +2000,6 @@
 		award4img.to(".nm-award-4-img", {
 			y: 300,
 		});
-		}
+	}
 	});
 })(jQuery);

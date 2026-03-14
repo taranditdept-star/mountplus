@@ -1,4 +1,4 @@
-﻿/*!
+/*!
 Theme Name: Nimo
 Theme URI: https://themeforest.net/user/themexriver
 Author: ThemeXriver
@@ -24,6 +24,23 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 
+
+/* CSS for FOUC and Proactive Visibility */
+.js-loading .nm-hero-1-main-img,
+.js-loading .nm-hero-1-title span,
+.js-loading .nm-hero-1-subtitle span {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+/* Ensure visibility after a reasonable timeout even if JS doesn't fire */
+@keyframes bypass-opacity {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nm-hero-1-main-img, .nm-hero-1-title span, .nm-hero-1-subtitle span {
+    animation: bypass-opacity 0.1s forwards 3s; /* Backup visibility after 3s */
+}
 
 /* Forced Overrides for Footer Sections */
 .nm-contact-1-info-single {
@@ -626,11 +643,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* ----------------------------------------------------------- */
 /* FIX: Nimo 1:1 Blog Clone Layout */
 /* ----------------------------------------------------------- */
-.nm-blog-card {
-
-    /* ----------------------------------------------------------- */
-    /* FIX: Nimo 1:1 Blog Clone Layout */
-    /* ----------------------------------------------------------- */
     /* Fix Vertical Spacing */
     .nm-blog-card {
         display: block !important;
