@@ -178,12 +178,9 @@
 */
 
 	document.addEventListener("DOMContentLoaded", function () {
-		/*
-			preloader-function
-		*/
 		const preloader = document.querySelector(".nm-preloader");
-
 		let animationsInitialized = false;
+
 		function initAnimations() {
 			if (animationsInitialized) return;
 			animationsInitialized = true;
@@ -191,6 +188,7 @@
 			if (typeof CustomEase !== "undefined") {
 				CustomEase.create("ease1", "0, 0, 0.2, 1");
 			}
+		}
 
 		function hidePreloader() {
 			if (preloader && !preloader.classList.contains("preloaded")) {
@@ -203,11 +201,9 @@
 		}
 
 		window.addEventListener("load", hidePreloader);
-
-		// Fail-safe: trigger preloader after 2 seconds even if assets are still loading
 		setTimeout(hidePreloader, 2000);
 
-			/*
+/*
 			wa-split-hero
 		*/
 			if ($(".wa_split_hero").length) {
@@ -2002,7 +1998,6 @@
 		award4img.to(".nm-award-4-img", {
 			y: 300,
 		});
-	}
-	}
+		}
 	});
 })(jQuery);
