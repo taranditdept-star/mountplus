@@ -68,3 +68,53 @@
 .nm-portfolio-modal .nm-pr-btn-1:hover .icon i {
     color: #000 !important;
 }
+
+/* Mobile Testimonial Fix - Premium Row Layout */
+@media (max-width: 767px) {
+    .nm-testimonial-1-area .nm-testimonial-1-wrap {
+        height: auto !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+    }
+
+    .nm-testimonial-1-area .nm-testimonial-1-preview {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 0 !important;
+    }
+
+    .nm-testimonial-1-area .nm-testimonial-1-preview-slider .swiper-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 15px !important;
+        transform: none !important;
+        flex-wrap: wrap !important;
+    }
+
+    .nm-testimonial-1-area .nm-testimonial-1-preview-slider .swiper-slide {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 !important;
+        position: static !important;
+    }
+
+    .nm-testimonial-1-area .nm-testimonial-1-main-slider {
+        position: relative !important;
+        width: 100% !important;
+        top: 0 !important;
+        transform: none !important;
+        z-index: 10 !important;
+    }
+
+    .nm-testimonial-1-main-slider-single .comment {
+        font-size: 19px !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+    }
+}
